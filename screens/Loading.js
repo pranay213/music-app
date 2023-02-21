@@ -6,13 +6,18 @@ import {
   Dimensions,
   ActivityIndicator,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Logo } from "../assets/Svg";
 import BgImage from "../assets/Svg/BgImage";
 
 const { width, height } = Dimensions.get("window");
 
-const Home = () => {
+const Loading = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate("Setup");
+    }, 5000);
+  }, []);
   return (
     <View
       style={{
@@ -37,7 +42,7 @@ const Home = () => {
         }}
       >
         <Logo />
-        <ActivityIndicator size={"large"} color="#42C83C" />
+        <ActivityIndicator size={"small"} color="#42C83C" />
       </View>
     </View>
   );
@@ -50,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Loading;

@@ -3,17 +3,24 @@ import { Button, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
-import Home from "./screens/Home";
+import Loading from "./screens/Loading";
+import Setup from "./screens/Setup";
 
 const Stack = createStackNavigator();
 
 function App() {
+  React.useEffect(() => {}, []);
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
-          component={Home}
+          name="Loading"
+          component={Loading}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Setup"
+          component={Setup}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
